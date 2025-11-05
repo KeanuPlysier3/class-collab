@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 const foundations = await getCollection("foundations");
+import FoundationsCard from "./FoundationsCard.astro";
 ---
 
 <section class="container" id="foundations">
@@ -12,7 +13,15 @@ const foundations = await getCollection("foundations");
     </p>
   </header>
   <ul>
-    <li>##FOUNDATION##</li>
+    {
+      foundations.map(foundation => (
+        <li>
+          {/* <a href={''}> */}
+          <FoundationsCard foundation={foundation} />
+          {/* </a> */}
+        </li>
+      ))
+    }
   </ul>
 </section>
 
